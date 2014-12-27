@@ -1,0 +1,25 @@
+<h1>Listing produtors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Produtor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @produtors.each do |produtor| %>
+      <tr>
+        <td><%= produtor.produtor %></td>
+        <td><%= link_to 'Show', produtor %></td>
+        <td><%= link_to 'Edit', edit_produtor_path(produtor) %></td>
+        <td><%= link_to 'Destroy', produtor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Produtor', new_produtor_path %>

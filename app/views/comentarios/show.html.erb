@@ -1,0 +1,13 @@
+
+<p>
+  <strong>Corpo:</strong>
+  <%= @comentario.corpo %>
+</p>
+
+<p>
+  <strong>Quantidadelikes:</strong>
+  <%= @comentario.quantidadelikes %>
+</p>
+
+<%= link_to 'Edit', edit_comentario_path(@comentario) %> |
+<%= link_to 'Back', comentarios_path %>

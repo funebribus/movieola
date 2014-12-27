@@ -1,0 +1,40 @@
+<%= form_for(@topico) do |f| %>
+  <% if @topico.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@topico.errors.count, "error") %> prohibited this topico from being saved:</h2>
+
+      <ul>
+      <% @topico.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if params[:filme] %>
+  <input type="number" id="topico_filme_id" name="topico[filme_id]" value="<%= params[:filme] %>" />
+  <% end %>
+  <div class="field">
+    <%= f.label :titulo %><br>
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :corpo %><br>
+    <%= f.text_area :corpo %>
+  </div>
+  <div class="field">
+    <%= f.label :quantidade_likes %><br>
+    <%= f.number_field :quantidade_likes %>
+  </div>
+  <div class="field">
+    <%= f.label :tags %><br>
+    <%= f.text_area :tags %>
+  </div>
+  <div class="field">
+    <%= f.label :quantidade_visualizacoes %><br>
+    <%= f.number_field :quantidade_visualizacoes %>
+  </div>
+  <%= f.hidden_field :filme_id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

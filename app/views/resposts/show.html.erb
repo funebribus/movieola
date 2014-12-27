@@ -1,0 +1,21 @@
+
+<p>
+  <strong>Corpo:</strong>
+  <%= @respost.corpo %>
+</p>
+
+<p>
+  <strong>Quantidadelikes:</strong>
+  <%= @respost.quantidadelikes %>
+</p>
+
+<h3>Comentários</h3>
+<% @respost.comentarios.each do |comentario| %>
+  <div>
+    <p><%= comentario.corpo %><p>
+  </div>
+<% end %>
+<%= render 'comentarios/form' %>
+
+<%= link_to 'Edit', edit_respost_path(@respost) %> |
+<%= link_to 'Back', resposts_path %>

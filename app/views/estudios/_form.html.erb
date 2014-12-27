@@ -1,0 +1,21 @@
+<%= form_for(@estudio) do |f| %>
+  <% if @estudio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@estudio.errors.count, "error") %> prohibited this estudio from being saved:</h2>
+
+      <ul>
+      <% @estudio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :estudio %><br>
+    <%= f.text_field :estudio %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,41 @@
+
+<p>
+  <strong>Corpo:</strong>
+  <%= @topico.corpo %>
+</p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @topico.titulo %>
+</p>
+
+<p>
+  <strong>Quantidade likes:</strong>
+  <%= @topico.quantidade_likes %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @topico.tags %>
+</p>
+
+<p>
+  <strong>Quantidade visualizacoes:</strong>
+  <%= @topico.quantidade_visualizacoes %>
+</p>
+
+<h3>Respostas</h3>
+<% @topico.resposts.each do |respost| %>
+  <div>
+    <p><%= respost.corpo %><p>
+  </div>
+  <% respost.comentarios.each do |comentario| %>
+    <div>
+      <p><%= comentario.corpo %><p>
+    </div>
+  <% end %>
+<% end %>
+<%= render 'resposts/form' %>
+
+<%= link_to 'Edit', edit_topico_path(@topico) %> |
+<%= link_to 'Back', topicos_path %>

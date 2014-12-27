@@ -1,0 +1,80 @@
+<%= form_for(@filme) do |f| %>
+  <% if @filme.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@filme.errors.count, "error") %> prohibited this filme from being saved:</h2>
+
+      <ul>
+      <% @filme.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titulo %><br>
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :datalancamento %><br>
+    <%= f.date_select :datalancamento, start_year: 1900 %>
+  </div>
+  <div class="field">
+    <%= f.label :imagemdecapa %><br>
+    <%= f.text_field :imagemdecapa %>
+  </div>
+  <div class="field">
+    <%= f.label :sinopse %><br>
+    <%= f.text_area :sinopse %>
+  </div>
+  <div class="field">
+    <%= f.label :atores %><br>
+    <% Ator.all.each do |ator| -%>
+        <%= check_box_tag :ator_ids, ator.id, @filme.ators.include?(ator), :name => 'filme[ator_ids][]' -%>
+        <%= f.label :ator_ids, ator.ator -%><br>
+    <% end -%>
+  </div>
+  <div class="field">
+    <%= f.label :generos %><br>
+    <% Genero.all.each do |genero| -%>
+        <%= check_box_tag :genero_ids, genero.id, @filme.generos.include?(genero), :name => 'filme[genero_ids][]' -%>
+        <%= f.label :genero_ids, genero.genero -%><br>
+    <% end -%>
+  </div>
+  <div class="field">
+    <%= f.label :duracao %><br>
+    <%= f.text_field :duracao %>
+  </div>
+  <div class="field">
+    <%= f.label :diretors %><br>
+    <% Diretor.all.each do |diretor| -%>
+        <%= check_box_tag :diretor_ids, diretor.id, @filme.diretors.include?(diretor), :name => 'filme[diretor_ids][]' -%>
+        <%= f.label :diretor_ids, diretor.diretor -%><br>
+    <% end -%>
+  </div>
+  <div class="field">
+    <%= f.label :produtors %><br>
+    <% Produtor.all.each do |produtor| -%>
+        <%= check_box_tag :produtor_ids, produtor.id, @filme.produtors.include?(produtor), :name => 'filme[produtor_ids][]' -%>
+        <%= f.label :produtor_ids, produtor.produtor -%><br>
+    <% end -%>
+  </div>
+  <div class="field">
+    <%= f.label :estudios %><br>
+    <% Estudio.all.each do |estudio| -%>
+        <%= check_box_tag :estudio_ids, estudio.id, @filme.estudios.include?(estudio), :name => 'filme[estudio_ids][]' -%>
+        <%= f.label :estudio_ids, estudio.estudio -%><br>
+    <% end -%>
+  </div>
+  <div class="field">
+    <%= f.label :tags %><br>
+    <%= f.text_area :tags %>
+  </div>
+  <div class="field">
+    <%= f.label :nota %><br>
+    <%= f.number_field :nota %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

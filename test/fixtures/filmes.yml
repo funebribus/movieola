@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titulo: MyString
+  datalancamento: 2014-12-22
+  imagemdecapa: MyString
+  sinopse: MyText
+  duracao: MyString
+  tags: MyText
+  nota: 1
+
+two:
+  titulo: MyString
+  datalancamento: 2014-12-22
+  imagemdecapa: MyString
+  sinopse: MyText
+  duracao: MyString
+  tags: MyText
+  nota: 1

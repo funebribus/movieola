@@ -1,0 +1,33 @@
+<h1>Listing topicos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Corpo</th>
+      <th>Titulo</th>
+      <th>Quantidade likes</th>
+      <th>Tags</th>
+      <th>Quantidade visualizacoes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @topicos.each do |topico| %>
+      <tr>
+        <td><%= topico.corpo %></td>
+        <td><%= topico.titulo %></td>
+        <td><%= topico.quantidade_likes %></td>
+        <td><%= topico.tags %></td>
+        <td><%= topico.quantidade_visualizacoes %></td>
+        <td><%= link_to 'Show', topico %></td>
+        <td><%= link_to 'Edit', edit_topico_path(topico) %></td>
+        <td><%= link_to 'Destroy', topico, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Topico', new_topico_path %>

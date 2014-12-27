@@ -1,0 +1,83 @@
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @filme.titulo %>
+</p>
+
+<p>
+  <strong>Datalancamento:</strong>
+  <%= @filme.datalancamento %>
+</p>
+
+<p>
+  <strong>Imagemdecapa:</strong>
+  <%= @filme.imagemdecapa %>
+</p>
+
+<p>
+  <strong>Sinopse:</strong>
+  <%= @filme.sinopse %>
+</p>
+
+<p>
+  <strong>Atores:</strong>
+  <% @filme.ators.each do |ator| %>
+    <%= ator.ator %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Gêneros:</strong>
+  <% @filme.generos.each do |genero| %>
+    <%= genero.genero %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Duracao:</strong>
+  <%= @filme.duracao %>
+</p>
+
+<p>
+  <strong>Diretores:</strong>
+  <% @filme.diretors.each do |diretor| %>
+    <%= diretor.diretor %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Estúdios:</strong>
+  <% @filme.estudios.each do |estudio| %>
+    <%= estudio.estudio %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Produtores:</strong>
+  <% @filme.produtors.each do |produtor| %>
+    <%= produtor.produtor %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @filme.tags %>
+</p>
+
+<p>
+  <strong>Nota:</strong>
+  <%= @filme.nota %>
+</p>
+
+<h3>Tópicos</h3>
+<% @filme.topicos.each do |topico| %>
+  <div>
+    <strong><%= topico.titulo %></strong>
+    <br />
+    <p><%= topico.corpo %><p>
+  </div>
+<% end %>
+<%= render 'topicos/form' %>
+
+<%= link_to 'Edit', edit_filme_path(@filme) %> |
+<%= link_to 'Back', filmes_path %>

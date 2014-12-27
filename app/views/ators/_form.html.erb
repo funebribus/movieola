@@ -1,0 +1,21 @@
+<%= form_for(@ator) do |f| %>
+  <% if @ator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ator.errors.count, "error") %> prohibited this ator from being saved:</h2>
+
+      <ul>
+      <% @ator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ator %><br>
+    <%= f.text_field :ator %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

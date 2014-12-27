@@ -1,0 +1,27 @@
+<h1>Listing resposts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Corpo</th>
+      <th>Quantidadelikes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resposts.each do |respost| %>
+      <tr>
+        <td><%= respost.corpo %></td>
+        <td><%= respost.quantidadelikes %></td>
+        <td><%= link_to 'Show', respost %></td>
+        <td><%= link_to 'Edit', edit_respost_path(respost) %></td>
+        <td><%= link_to 'Destroy', respost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Respost', new_respost_path %>
